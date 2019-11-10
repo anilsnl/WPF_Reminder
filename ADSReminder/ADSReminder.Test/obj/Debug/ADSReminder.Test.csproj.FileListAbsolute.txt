@@ -1,0 +1,13 @@
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\ADSReminder.Test.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\ADSReminder.Test.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.csprojAssemblyReference.cache
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.csproj.CopyComplete
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.pdb
