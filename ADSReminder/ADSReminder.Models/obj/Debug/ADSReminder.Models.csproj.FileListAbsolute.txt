@@ -1,0 +1,8 @@
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\ADSReminder.Models.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\ADSReminder.Models.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\obj\Debug\ADSReminder.Models.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\obj\Debug\ADSReminder.Models.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\obj\Debug\ADSReminder.Models.csproj.CopyComplete

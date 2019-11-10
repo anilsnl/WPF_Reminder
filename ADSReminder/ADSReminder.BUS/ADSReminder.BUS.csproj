@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\IUserManager.cs" />
+    <Compile Include="BUSIOCModule.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADSReminder.DataAccess\ADSReminder.DataAccess.csproj">
+      <Project>{a2bb07ed-b2aa-4690-a06e-dcce15e46d3d}</Project>
+      <Name>ADSReminder.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADSReminder.Models\ADSReminder.Models.csproj">
+      <Project>{71db0123-9300-46b2-84d6-75eadf8972c4}</Project>
+      <Name>ADSReminder.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADSReminder.Utility\ADSReminder.Utility.csproj">
+      <Project>{b74c2028-4669-44f4-af80-f25661c7a16f}</Project>
+      <Name>ADSReminder.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

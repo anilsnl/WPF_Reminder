@@ -11,3 +11,6 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminde
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.csproj.CopyComplete
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.dll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\obj\Debug\ADSReminder.Test.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Autofac.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Autofac.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Test\bin\Debug\Autofac.xml

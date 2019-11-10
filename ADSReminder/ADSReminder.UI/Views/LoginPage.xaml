@@ -1,0 +1,80 @@
+﻿<Window x:Class="ADSReminder.UI.Views.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADSReminder.UI.Views"
+        mc:Ignorable="d"
+        Title="ADS Reminder" 
+        Height="500" 
+        Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="False"
+        WindowStyle="SingleBorderWindow">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" 
+                Grid.Row="0" 
+                Grid.ColumnSpan="2" 
+                Background="Red">
+            <DockPanel VerticalAlignment="Center" 
+                       Margin="15"
+                       HorizontalAlignment="Left" >
+                <Image 
+                Source="/Src/Icons/logo.png"  />
+                <Label Content="ADS Reminder"
+                   FontFamily="Tahoma"
+                   FontWeight="ExtraBold"
+                   BorderThickness="2,2,2,2"
+                   FontStyle="Italic"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   FontSize="25" 
+                   Foreground="White"/>
+            </DockPanel>
+        </Border>
+        <Border Grid.Column="0"
+                Grid.Row="1" 
+                Background="DarkBlue">
+            <StackPanel>
+                <Button Height="50" Style="{DynamicResource btnMenu}" HorizontalContentAlignment="Left"
+                        x:Name="btnMenuLogin"
+                        Click="btnMenuLogin_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0" >
+                        <Image Source="/Src/Icons/user.png" Width="32"/>
+                        <Label Content="Login" Foreground="White" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource btnMenu}" HorizontalContentAlignment="Left"
+                        x:Name="btnMenuRegister" Click="btnMenuRegister_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0" >
+                        <Image Source="/Src/Icons/add.png" Width="32"/>
+                        <Label Content="Register" Foreground="White" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource btnMenu}" HorizontalContentAlignment="Left"
+                        x:Name="btnMenuResetPassword" Click="btnMenuResetPassword_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0" >
+                        <Image Source="/Src/Icons/reset.png" Width="32"/>
+                        <Label Content="Reset Password" Foreground="White" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1"
+                Grid.Row="1" 
+                BorderBrush="Azure" >
+            <Grid x:Name="grdMain">
+                
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

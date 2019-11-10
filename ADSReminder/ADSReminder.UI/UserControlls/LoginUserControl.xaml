@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ADSReminder.UI.UserControlls.LoginUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ADSReminder.UI.UserControlls"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Login"  Style="{DynamicResource lblTitle1}"/>
+        <StackPanel Margin="15"  Grid.Row="1" HorizontalAlignment="Center" Background="White">
+           
+            <Label  Content="Username"
+                            Style="{DynamicResource lblT1}"/>
+            <TextBox Style="{DynamicResource txtForm}"/>
+
+            <Label  Content="Password*" 
+                Style="{DynamicResource lblT1}"/>
+            <PasswordBox Style="{DynamicResource passFrm}" 
+                PasswordChar="*" />
+            <CheckBox Content="Save Login" />
+            <Button Content="Login" HorizontalAlignment="Right" Style="{DynamicResource btnDanger}" Width="100" />
+
+        </StackPanel>
+    </Grid>
+    
+</UserControl>

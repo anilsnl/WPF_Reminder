@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="ADSReminder.UI.UserControlls.RegisterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ADSReminder.UI.UserControlls"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Register"  Style="{DynamicResource lblTitle1}"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True"  Grid.Row="1"  >
+
+            <StackPanel Margin="15" HorizontalAlignment="Center" Background="White" 
+                    CanVerticallyScroll="True"
+                    CanHorizontallyScroll="True">
+                <Label  Content="Name Surname*"
+                            Style="{DynamicResource lblT1}"/>
+                <TextBox Style="{DynamicResource txtForm}"/>
+
+                <Label  Content="Username"
+                            Style="{DynamicResource lblT1}"/>
+                <TextBox Style="{DynamicResource txtForm}"/>
+
+                <Label  Content="New Password*" 
+                Style="{DynamicResource lblT1}"/>
+                <PasswordBox Style="{DynamicResource passFrm}" 
+                PasswordChar="*" />
+                <Label  Content="Confirm Password*" 
+                Style="{DynamicResource lblT1}"/>
+                <PasswordBox Style="{DynamicResource passFrm}" 
+                PasswordChar="*" />
+
+                <Label  Content="Secret Question*"
+                            Style="{DynamicResource lblT1}"/>
+                <TextBox Style="{DynamicResource txtForm}"/>
+
+                <Label  Content="Secret Answer*"
+                            Style="{DynamicResource lblT1}"/>
+                <TextBox Style="{DynamicResource txtForm}"/>
+
+                <Button Content="Register And Login" HorizontalAlignment="Right" Style="{DynamicResource btnDanger}" Width="250" />
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

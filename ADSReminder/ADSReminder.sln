@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSReminder.BUS", "ADSRemin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSReminder.Test", "ADSReminder.Test\ADSReminder.Test.csproj", "{29E402FE-390D-4D02-B8E6-5599CE00A5B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSReminder.Utility", "ADSReminder.Utility\ADSReminder.Utility.csproj", "{B74C2028-4669-44F4-AF80-F25661C7A16F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{29E402FE-390D-4D02-B8E6-5599CE00A5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E402FE-390D-4D02-B8E6-5599CE00A5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E402FE-390D-4D02-B8E6-5599CE00A5B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74C2028-4669-44F4-AF80-F25661C7A16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74C2028-4669-44F4-AF80-F25661C7A16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74C2028-4669-44F4-AF80-F25661C7A16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74C2028-4669-44F4-AF80-F25661C7A16F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

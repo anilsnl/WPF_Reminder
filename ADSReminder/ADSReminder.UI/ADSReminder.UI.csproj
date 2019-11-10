@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,18 +58,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="BaseClasses\BaseViewModel.cs" />
+    <Compile Include="UserControlls\LoginUserControl.xaml.cs">
+      <DependentUpon>LoginUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\RegisterUserControl.xaml.cs">
+      <DependentUpon>RegisterUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\ResetPasswordUserControl.xaml.cs">
+      <DependentUpon>ResetPasswordUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="UserControlls\LoginUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlls\RegisterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlls\ResetPasswordUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +111,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +120,30 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADSReminder.BUS\ADSReminder.BUS.csproj">
+      <Project>{1b206b8b-a938-4f3d-8b44-25fcde4aeb8c}</Project>
+      <Name>ADSReminder.BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADSReminder.Models\ADSReminder.Models.csproj">
+      <Project>{71db0123-9300-46b2-84d6-75eadf8972c4}</Project>
+      <Name>ADSReminder.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Src\Icons\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Src\Icons\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Src\Icons\add.png" />
+    <Resource Include="Src\Icons\delete.png" />
+    <Resource Include="Src\Icons\logout.png" />
+    <Resource Include="Src\Icons\reset.png" />
+    <Resource Include="Src\Icons\search.png" />
+    <Resource Include="Src\Icons\user.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
