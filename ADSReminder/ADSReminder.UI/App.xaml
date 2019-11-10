@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <!--Login left menu button.-->
             <Style x:Key="btnMenu" TargetType="Button">
                 <Setter Property="Foreground" Value="#FF787878"/>
                 <Setter Property="Margin" Value="0,0,0,1"/>
@@ -41,7 +42,7 @@
                 </Setter>
             </Style>
 
-
+            <!-- Baic buttonn-->
             <Style x:Key="btnSuccess" TargetType="Button">
                 <Setter Property="FontFamily" Value="Tahome"/>
                 <Setter Property="BorderThickness" Value="0"/>
@@ -75,6 +76,9 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            
+            <!--Forms fasic-->
+
             <Style x:Key="lblTitle1" TargetType="Label">
                 <Setter Property="FontFamily" Value="Tahoma"/>
                 <Setter Property="FontWeight" Value="ExtraBold" />
@@ -87,6 +91,7 @@
                 <Setter Property="FontSize" Value="25" />
                 <Setter Property="Foreground" Value="Red" />
             </Style>
+            
             <Style x:Key="lblT1" TargetType="Label">
                 <Setter Property="FontFamily" Value="Tahoma"/>
                 <Setter Property="FontSize" Value="15" />
@@ -125,6 +130,7 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            <!--End of form basic-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
