@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ADSReminder.UI.Views"
         mc:Ignorable="d"
         Title="ADS Reminder" 
-        Height="500" 
+        Height="600" 
         Width="800"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"

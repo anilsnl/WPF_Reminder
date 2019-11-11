@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ADSReminder.UI.UserControlls"
              mc:Ignorable="d" 
              Background="White"
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="500" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -20,30 +20,40 @@
                     CanHorizontallyScroll="True">
                 <Label  Content="Name Surname*"
                             Style="{DynamicResource lblT1}"/>
-                <TextBox Style="{DynamicResource txtForm}"/>
+                <TextBox Style="{DynamicResource txtForm}"
+                         Text="{Binding Path=User.NameSurname,Mode=TwoWay}"/>
 
                 <Label  Content="Username"
                             Style="{DynamicResource lblT1}"/>
-                <TextBox Style="{DynamicResource txtForm}"/>
+                <TextBox Style="{DynamicResource txtForm}"
+                         Text="{Binding Path=User.Username,Mode=TwoWay}"/>
 
                 <Label  Content="New Password*" 
-                Style="{DynamicResource lblT1}"/>
+                        Style="{DynamicResource lblT1}"/>
                 <PasswordBox Style="{DynamicResource passFrm}" 
-                PasswordChar="*" />
+                             x:Name="pswPassword"
+                             PasswordChanged="pswPassword_PasswordChanged"
+                             PasswordChar="*" />
                 <Label  Content="Confirm Password*" 
                 Style="{DynamicResource lblT1}"/>
                 <PasswordBox Style="{DynamicResource passFrm}" 
-                PasswordChar="*" />
+                             x:Name="pswConfirm"
+                             PasswordChanged="pswConfirm_PasswordChanged"
+                             PasswordChar="*" />
 
                 <Label  Content="Secret Question*"
                             Style="{DynamicResource lblT1}"/>
-                <TextBox Style="{DynamicResource txtForm}"/>
+                <TextBox Style="{DynamicResource txtForm}"
+                         Text="{Binding Path=User.SecretQuestion,Mode=TwoWay}"/>
 
                 <Label  Content="Secret Answer*"
                             Style="{DynamicResource lblT1}"/>
-                <TextBox Style="{DynamicResource txtForm}"/>
+                <TextBox Style="{DynamicResource txtForm}"
+                         Text="{Binding Path=User.SecretAnswer,Mode=TwoWay}"/>
 
-                <Button Content="Register And Login" HorizontalAlignment="Right" Style="{DynamicResource btnDanger}" Width="250" />
+                <Button Content="Register And Login" HorizontalAlignment="Right" 
+                        Style="{DynamicResource btnDanger}" Width="250"
+                        Command="{Binding RegisterCommand}"/>
 
             </StackPanel>
         </ScrollViewer>

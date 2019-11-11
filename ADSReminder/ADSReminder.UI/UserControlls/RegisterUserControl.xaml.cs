@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ADSReminder.UI.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ADSReminder.UI.UserControlls
 {
@@ -20,9 +9,22 @@ namespace ADSReminder.UI.UserControlls
     /// </summary>
     public partial class RegisterUserControl : UserControl
     {
+        private RegisterUserControlViewModel mModel;
         public RegisterUserControl()
         {
             InitializeComponent();
+            mModel = new RegisterUserControlViewModel();
+            DataContext = mModel;
+        }
+
+        private void pswConfirm_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            mModel.User.ConfirmPassword = pswConfirm.Password;
+        }
+
+        private void pswPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            mModel.User.Password = pswPassword.Password;
         }
     }
 }

@@ -21,9 +21,18 @@ namespace ADSReminder.UI.UserControlls
     /// </summary>
     public partial class LoginUserControl : UserControl
     {
+        private LoginUserControlViewModel mLoginViewModel;
         public LoginUserControl()
         {
             InitializeComponent();
+            mLoginViewModel = new LoginUserControlViewModel();
+            DataContext = mLoginViewModel;
+        }
+
+        private void psPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender != null && mLoginViewModel != null)
+                mLoginViewModel.Password = (sender as PasswordBox).Password;
         }
     }
 }

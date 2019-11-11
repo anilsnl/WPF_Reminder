@@ -29,6 +29,8 @@ namespace ADSReminder.Models.DBObjects
         [Column("OwnerId")]
         [ForeignKey(nameof(Owner))]
         public int OwnerId { get; set; }
+        [NotMapped]
+        public int NumberOfItems { get => Items.Count; }
         #endregion
         #region Relation Objects
         public virtual User Owner { get; set; }

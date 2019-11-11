@@ -1,13 +1,14 @@
 ﻿using ADSReminder.UI.BaseClasses;
+using System.Windows.Input;
 
 namespace ADSReminder.UI.ViewModels
 {
-    public class LoginViewModel:BaseViewModel
+    public class LoginUserControlViewModel:BaseViewModel
     {
         private string mUsername;
         private string mPassword;
         private bool mSaveLogin;
-
+        private ICommand mLoginCommand;
         public string Username 
         { 
             get => mUsername; 
@@ -34,6 +35,20 @@ namespace ADSReminder.UI.ViewModels
                 mSaveLogin = value;
                 OnPropertyChanged(nameof(SaveLogin));
             }
+        }
+
+        public ICommand LoginCommand
+        {
+            get 
+            {
+                if (mLoginCommand == null)
+                    mLoginCommand = new CommandExcuter(OnLogin);
+                return mLoginCommand;
+            }
+        }
+        public void OnLogin(object arg)
+        {
+
         }
     }
 }
