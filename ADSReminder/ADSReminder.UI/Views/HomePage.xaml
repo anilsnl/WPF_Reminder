@@ -116,10 +116,104 @@
             </StackPanel>
         </Border>
         <Border Grid.Column="1"
-                Grid.Row="1" 
-                BorderBrush="Azure" >
-            <Grid x:Name="grdMain">
-
+                Margin="0"
+                Padding="1"
+                Grid.Row="1" >
+            <Grid x:Name="grdMain" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Column="0" 
+                           Grid.Row="0"
+                           Margin="0"
+                           Background="DarkBlue" VerticalAlignment="Center">
+                    <Label Content="Order By: "
+                           FontSize="18"
+                           Style="{DynamicResource lblFiter}"/>
+                    <ComboBox Style="{DynamicResource cmbFilter}"
+                              Width="110"
+                              Height="30"  >
+                        <ComboBoxItem Content="Name" />
+                        <ComboBoxItem Content="Status" />
+                        <ComboBoxItem Content="Create Date" />
+                    </ComboBox>
+                    <Label Content="Filter By: "
+                           FontSize="18"
+                           Style="{DynamicResource lblFiter}"/>
+                    <ComboBox Style="{DynamicResource cmbFilter}"
+                              Width="150"
+                              Height="30">
+                        <ComboBoxItem Content="-All-" />
+                        <ComboBoxItem Content="Complated" />
+                        <ComboBoxItem Content="Not Complated" />
+                        <ComboBoxItem Content="Expred" />
+                    </ComboBox>
+                    <Label Content="Search: "
+                           FontSize="18"
+                           Style="{DynamicResource lblFiter}"/>
+                    <TextBox x:Name="txtReminderSearch"
+                             Style="{DynamicResource txtFilter}"
+                             Height="30"
+                             Width="130"/>
+                </DockPanel>
+                <ListView ItemsSource="{Binding ReminderItems}" 
+                          Grid.Column="0"
+                          Width="675"
+                          Grid.Row="1" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid  Width="675">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="62*"/>
+                                    <ColumnDefinition Width="30*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding StatuImage}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2"/>
+                                <Label Grid.Row="0"
+                                       Grid.Column="1" 
+                                       FontSize="14"  
+                                       VerticalContentAlignment="Center"
+                                       FontFamily="Tahoma" 
+                                       FontWeight="Bold" Margin="0" Padding="0"
+                                       Content="{Binding Title}"/>
+                                <Label Content="{Binding StringFormat='Due: {0}',Path=DueDate}"
+                                       Grid.Row="0" FontSize="10"  
+                                       FontFamily="Tahoma" 
+                                       FontWeight="Bold"
+                                       Margin="0" 
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Right"
+                                       HorizontalAlignment="Right"
+                                       Padding="0"
+                                       Grid.Column="2"/>
+                                <Label Content="{Binding Detail}"
+                                       Grid.Row="1" 
+                                       VerticalContentAlignment="Top"
+                                       FontSize="10"  
+                                       FontFamily="Tahoma"
+                                       Grid.Column="1"/>
+                                <Label Content="{Binding StringFormat='Create: {0}',Path=DueDate}"
+                                       Grid.Row="0" FontSize="10"  
+                                       FontFamily="Tahoma" 
+                                       FontWeight="Bold"
+                                       Margin="0" 
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Right"
+                                       HorizontalAlignment="Right"
+                                       Padding="2"
+                                       Grid.Column="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
         </Border>
     </Grid>

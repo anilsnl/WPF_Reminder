@@ -30,6 +30,11 @@ namespace ADSReminder.UI.Views
                 {
                     new Reminder {Title ="Item 1",Detail="Detail 1"},
                     new Reminder {Title ="Item 1",Detail="Detail 2"},
+                },
+                ReminderItems = new[]
+                {
+                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/add.png" },
+                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/add.png" },
                 }
             };
         }

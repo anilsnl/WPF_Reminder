@@ -34,5 +34,5 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\UserControll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\UserControlls\RegisterUserControl.baml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\UserControlls\ResetPasswordUserControl.g.cs
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\UserControlls\ResetPasswordUserControl.baml
-C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePaage.g.cs
-C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePaage.baml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePage.g.cs
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePage.baml

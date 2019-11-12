@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\App.xaml
-5786859006
+5736933919
 
-15-639489048
+151582481804
 16-493261999
-UserControlls\LoginUserControl.xaml;UserControlls\RegisterUserControl.xaml;UserControlls\ResetPasswordUserControl.xaml;Views\HomePaage.xaml;Views\LoginPage.xaml;
+UserControlls\LoginUserControl.xaml;UserControlls\RegisterUserControl.xaml;UserControlls\ResetPasswordUserControl.xaml;Views\HomePage.xaml;Views\LoginPage.xaml;
 
 False
 
