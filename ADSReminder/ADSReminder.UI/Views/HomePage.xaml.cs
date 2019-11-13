@@ -1,4 +1,5 @@
 ﻿using ADSReminder.Models.DBObjects;
+using Microsoft.Windows.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,21 @@ namespace ADSReminder.UI.Views
                     new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/yes.png" },
                     new { Title = "Test Item 1", DueDate = DateTime.Now.AddDays(-1), Detail = "More Detail About Something.", StatuImage = "/Src/Icons/worm.png" },
                 },
-                IsSelectedItem = Visibility.Visible
+                IsSelectedItem = Visibility.Visible,
+                DueDate = DateTime.Now
             };
+            DateTimePicker dateTimePicker = new DateTimePicker();
+
+        }
+
+        private void btnRollback_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

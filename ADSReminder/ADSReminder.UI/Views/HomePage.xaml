@@ -129,7 +129,7 @@
                 <DockPanel Grid.Column="0" 
                            Grid.Row="0"
                            Margin="0"
-                           Background="DarkBlue" VerticalAlignment="Center">
+                           VerticalAlignment="Center">
                     <Label Content="Order By: "
                            FontSize="18"
                            Style="{DynamicResource lblFiter}"/>
@@ -218,8 +218,8 @@
                 </ListView>
                 <Grid Grid.Row="2"
                       Grid.Column="0"
-                      Visibility="{Binding IsSelectedItem}"
-                      Width="675">
+                      Visibility="{Binding IsSelectedReminderItem}"
+                      Width="666">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"/>
                         <ColumnDefinition Width="35*"/>
@@ -237,12 +237,14 @@
                            VerticalAlignment="Center"
                            VerticalContentAlignment="Center"
                            Style="{DynamicResource lblT1}"
+                           Margin="0"
                            Width="100"
                            Height="40"/>
                     <TextBox Grid.Row="0"
                              Grid.Column="1"
-                             Text="{Binding SelectedItem.Title}"
+                             Text="{Binding SelectedReminderItem.Title}"
                              Style="{DynamicResource txtForm}"
+                             Margin="0"
                              Width="235"
                              Height="40"/>
                     <Label Grid.Row="0"
@@ -250,17 +252,73 @@
                            VerticalAlignment="Center"
                            VerticalContentAlignment="Center"
                            Content="Due Date"
+                           Margin="0"
                            Style="{DynamicResource lblT1}"
                            Width="100"
                            Height="40"/>
                     <wpfx:DateTimePicker Grid.Row="0"
                              Grid.Column="3"
-                             Text="{Binding DueDate}"
+                             Value="{Binding Path=SelectedReminderItem.DueDate,Mode=OneWay}"
                              VerticalAlignment="Center"
                              VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Left"
+                             HorizontalAlignment="Left"
+                             Margin="0,2"
                              Style="{DynamicResource dtpForm}"
-                             Width="230"
-                             Height="40"/>
+                             Width="223"
+                             Height="36"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="Detail"
+                           Margin="0"
+                           Style="{DynamicResource lblT1}"
+                           Width="100"
+                           Height="40"/>
+                    <Button Grid.Column="0"
+                            Grid.Row="2"
+                            Content="Delete"
+                            Height="30"
+                            FontSize="10"
+                            Width="90"
+                            Style="{DynamicResource btnDanger}"/>
+                    <wpfx:RichTextBox Grid.Row="1"
+                             Grid.Column="1"
+                             Grid.RowSpan="2"
+                             Grid.ColumnSpan="2"
+                             Text="{Binding SelectedReminderItem.Detail}"
+                             Style="{DynamicResource frmRTxt}"
+                             Margin="0"
+                             Width="330"
+                             Height="80"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="3"
+                              IsChecked="{Binding SelectedReminderItem.IsComplated}"
+                              Style="{DynamicResource chcFrm}"
+                              Margin="0,5,10,5"
+                              Content="Mark As Complated" Width="Auto"/>
+                    <DockPanel Grid.Column="3"
+                               Grid.Row="2"
+                               Width="235"
+                               Margin="0" >
+                        <Button HorizontalAlignment="Right"
+                            Content="Rollback"
+                            Height="30"
+                            FontSize="10"
+                            Width="100"
+                            x:Name="btnRollback"
+                            Click="btnRollback_Click"
+                            Style="{DynamicResource btnDanger}"/>
+                        <Button HorizontalAlignment="Right"
+                            Content="Save Changes"
+                            Height="30"
+                            FontSize="10"
+                            Width="118"
+                            x:Name="btnSaveChanges"
+                            Click="btnSaveChanges_Click"
+                            Style="{DynamicResource btnSuccess}" Margin="0,5"/>
+                    </DockPanel>
                 </Grid>
             </Grid>
         </Border>
