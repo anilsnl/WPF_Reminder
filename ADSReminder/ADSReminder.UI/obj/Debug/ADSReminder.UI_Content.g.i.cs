@@ -8,11 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/add.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/delete.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/logout.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/reset.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/search.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/iconfinder_free-14_463013.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/user.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/worm.png")]
 
 

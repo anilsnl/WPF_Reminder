@@ -33,9 +33,11 @@ namespace ADSReminder.UI.Views
                 },
                 ReminderItems = new[]
                 {
-                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/add.png" },
-                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/add.png" },
-                }
+                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/ınprocess.png" },
+                    new { Title = "Test Item 1", DueDate = DateTime.Now, Detail = "More Detail About Something.", StatuImage = "/Src/Icons/yes.png" },
+                    new { Title = "Test Item 1", DueDate = DateTime.Now.AddDays(-1), Detail = "More Detail About Something.", StatuImage = "/Src/Icons/worm.png" },
+                },
+                IsSelectedItem = Visibility.Visible
             };
         }
     }

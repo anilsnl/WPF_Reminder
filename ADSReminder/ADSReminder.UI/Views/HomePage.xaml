@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
         xmlns:local="clr-namespace:ADSReminder.UI.Views"
         mc:Ignorable="d"
         Title="HomePaage" 
@@ -123,6 +124,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="120"/>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Column="0" 
                            Grid.Row="0"
@@ -214,6 +216,52 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Grid Grid.Row="2"
+                      Grid.Column="0"
+                      Visibility="{Binding IsSelectedItem}"
+                      Width="675">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="35*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Content="Title"
+                           VerticalAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Style="{DynamicResource lblT1}"
+                           Width="100"
+                           Height="40"/>
+                    <TextBox Grid.Row="0"
+                             Grid.Column="1"
+                             Text="{Binding SelectedItem.Title}"
+                             Style="{DynamicResource txtForm}"
+                             Width="235"
+                             Height="40"/>
+                    <Label Grid.Row="0"
+                           Grid.Column="2"
+                           VerticalAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="Due Date"
+                           Style="{DynamicResource lblT1}"
+                           Width="100"
+                           Height="40"/>
+                    <wpfx:DateTimePicker Grid.Row="0"
+                             Grid.Column="3"
+                             Text="{Binding DueDate}"
+                             VerticalAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             Style="{DynamicResource dtpForm}"
+                             Width="230"
+                             Height="40"/>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

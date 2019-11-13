@@ -52,6 +52,10 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended, Version=1.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -148,13 +152,20 @@
     <Resource Include="Src\Icons\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Src\Icons\add.png" />
-    <Resource Include="Src\Icons\delete.png" />
     <Resource Include="Src\Icons\logout.png" />
     <Resource Include="Src\Icons\reset.png" />
-    <Resource Include="Src\Icons\search.png" />
-    <Resource Include="Src\Icons\user.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Src\Icons\add.png" />
+    <Resource Include="Src\Icons\delete.png" />
+    <Resource Include="Src\Icons\search.png" />
+    <Resource Include="Src\Icons\yes.png" />
+    <Resource Include="Src\Icons\ınprocess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Src\Icons\iconfinder_free-14_463013.png" />
+    <Resource Include="Src\Icons\user.png" />
+    <Resource Include="Src\Icons\worm.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
