@@ -11,6 +11,7 @@ namespace ADSReminder.BUS
             builder.RegisterModule(new DataAccess.DataAccessIOCModule());
 
             builder.RegisterType<UserManager>().As<IUserManager>().SingleInstance();
+            builder.RegisterType<ReminderManager>().As<IReminderManager>().SingleInstance();
             base.Load(builder);
         }
     }

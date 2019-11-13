@@ -8,6 +8,7 @@ namespace ADSReminder.UI.ViewModels
 {
     public class LoginUserControlViewModel:BaseViewModel
     {
+        #region Binding Ibjects
         private string mUsername;
         private string mPassword;
         private bool mSaveLogin;
@@ -49,6 +50,8 @@ namespace ADSReminder.UI.ViewModels
                 return mLoginCommand;
             }
         }
+        #endregion
+        #region Methods
         public async void OnLogin(object arg)
         {
             try
@@ -74,5 +77,6 @@ namespace ADSReminder.UI.ViewModels
                 UserAlert.fnInformUser(UserInformType.Error, "Error", $"{ex.Message}!");
             }
         }
+        #endregion
     }
 }

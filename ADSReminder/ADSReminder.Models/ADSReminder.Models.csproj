@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\BaseModel.cs" />
+    <Compile Include="BUSModels\ReminderGroupModel.cs" />
+    <Compile Include="BUSModels\ReminderItemModel.cs" />
     <Compile Include="DBObjects\BaseEntity.cs" />
     <Compile Include="DBObjects\Reminder.cs" />
     <Compile Include="DBObjects\ReminderItem.cs" />

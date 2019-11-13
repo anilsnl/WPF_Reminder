@@ -30,6 +30,8 @@
                     SecretAnswer = ADSReminder.Utility.Security.Hasher.fnHashString("test"),
                 };
                 argContext.Users.Add(lcTestUser);
+                argContext.SaveChanges();
+                lcTestUser = argContext.Users.FirstOrDefault();
                 var lcReminder = new Reminder
                 {
                     CreatedDate = System.DateTime.Now,
@@ -38,9 +40,12 @@
                     IsActive = true,
                     Detail = "Test Group Detail"
                 };
-                lcReminder.Items.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(20), Title = "Item 1", Detail = "Detail 1", IsComplated = false });
-                lcReminder.Items.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 2", Detail = "Detail 2", IsComplated = false });
-                lcReminder.Items.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 3", Detail = "Detail 3", IsComplated = true });
+                argContext.Reminders.Add(lcReminder);
+                argContext.SaveChanges();
+                lcReminder = argContext.Reminders.FirstOrDefault();
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(20), Title = "Item 1", Detail = "Detail 1", IsComplated = false,ReminderId=lcReminder.Id });
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 2", Detail = "Detail 2", IsComplated = false,ReminderId=lcReminder.Id });
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 3", Detail = "Detail 3", IsComplated = true,ReminderId=lcReminder.Id });
                 argContext.SaveChanges();
             }
         }

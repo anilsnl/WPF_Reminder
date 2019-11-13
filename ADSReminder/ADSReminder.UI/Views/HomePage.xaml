@@ -66,7 +66,7 @@
                 </Grid>
                 <ListView x:Name="lstGroup"
                           Background="Transparent"
-                          ItemsSource="{Binding Items}"
+                          ItemsSource="{Binding Reminders}"
                           Height="365">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -159,7 +159,8 @@
                              Height="30"
                              Width="130"/>
                 </DockPanel>
-                <ListView ItemsSource="{Binding ReminderItems}" 
+                <ListView ItemsSource="{Binding SelectedGroup.Items}" 
+                          SelectedItem="{Binding SelectedItem}"
                           Grid.Column="0"
                           Width="675"
                           Grid.Row="1" >
@@ -175,7 +176,7 @@
                                     <ColumnDefinition Width="62*"/>
                                     <ColumnDefinition Width="30*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding StatuImage}"
+                                <Image Source="{Binding IconSrc}"
                                        Grid.Column="0"
                                        Grid.Row="0"
                                        Grid.RowSpan="2"/>
@@ -242,7 +243,7 @@
                            Height="40"/>
                     <TextBox Grid.Row="0"
                              Grid.Column="1"
-                             Text="{Binding SelectedReminderItem.Title}"
+                             Text="{Binding SelectedItem.Title}"
                              Style="{DynamicResource txtForm}"
                              Margin="0"
                              Width="235"
@@ -258,7 +259,7 @@
                            Height="40"/>
                     <wpfx:DateTimePicker Grid.Row="0"
                              Grid.Column="3"
-                             Value="{Binding Path=SelectedReminderItem.DueDate,Mode=OneWay}"
+                             Value="{Binding Path=SelectedItem.DueDate,Mode=OneWay}"
                              VerticalAlignment="Center"
                              VerticalContentAlignment="Center"
                              HorizontalContentAlignment="Left"
@@ -287,14 +288,14 @@
                              Grid.Column="1"
                              Grid.RowSpan="2"
                              Grid.ColumnSpan="2"
-                             Text="{Binding SelectedReminderItem.Detail}"
+                             Text="{Binding SelectedItem.Detail}"
                              Style="{DynamicResource frmRTxt}"
                              Margin="0"
                              Width="330"
                              Height="80"/>
                     <CheckBox Grid.Row="1"
                               Grid.Column="3"
-                              IsChecked="{Binding SelectedReminderItem.IsComplated}"
+                              IsChecked="{Binding SelectedItem.IsComplated}"
                               Style="{DynamicResource chcFrm}"
                               Margin="0,5,10,5"
                               Content="Mark As Complated" Width="Auto"/>

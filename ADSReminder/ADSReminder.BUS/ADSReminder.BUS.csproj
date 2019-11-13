@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\IReminderManager.cs" />
     <Compile Include="Abstraction\IUserManager.cs" />
     <Compile Include="BUSIOCModule.cs" />
+    <Compile Include="Concrete\ReminderManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

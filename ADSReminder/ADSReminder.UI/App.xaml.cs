@@ -33,9 +33,11 @@ namespace ADSReminder.UI
             }
         }
         public User CuurentUser { get; set; }
+        public static User CurrentUser { get; internal set; }
+
         public App()
         {
-            
+            App.CurrentUser = App.CenteralIOC.Resolve<IUserManager>().fnLoginAsync("test", "test").Result;
         }
     }
 }

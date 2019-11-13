@@ -6,3 +6,4 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.pdb
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\bin\Debug\Autofac.xml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\obj\Debug\ADSReminder.Models.csproj.CopyComplete
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.Models\obj\Debug\ADSReminder.Models.csprojAssemblyReference.cache
