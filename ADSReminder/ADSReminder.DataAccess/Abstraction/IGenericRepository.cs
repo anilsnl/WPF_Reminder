@@ -49,5 +49,12 @@ namespace ADSReminder.DataAccess.Abstraction
         /// </summary>
         /// <param name="argObject"></param>
         void fnDeleteAsync(BaseEntity argObject);
+        /// <summary>
+        /// Takes the filter and returns there exist any record matching that filter.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="argFiter"></param>
+        /// <returns></returns>
+        Task<bool> fnExistAsync<T>(Expression<Func<T, bool>> argFiter) where T : BaseEntity, new();
     }
 }

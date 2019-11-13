@@ -1,4 +1,7 @@
-﻿using ADSReminder.UI.BaseClasses;
+﻿using ADSReminder.BUS.Abstraction;
+using ADSReminder.UI.BaseClasses;
+using ADSReminder.UI.Helpers.UI;
+using Autofac;
 using System.Windows.Input;
 
 namespace ADSReminder.UI.ViewModels
@@ -46,9 +49,30 @@ namespace ADSReminder.UI.ViewModels
                 return mLoginCommand;
             }
         }
-        public void OnLogin(object arg)
+        public async void OnLogin(object arg)
         {
+            try
+            {
+                var lcUserManager = App.CenteralIOC.Resolve<IUserManager>();
+                if (string.IsNullOrEmpty(this.Username) || string.IsNullOrEmpty(this.Password))
+                {
+                    UserAlert.fnInformUser(UserInformType.Warning, "Required!", "Username and password could not be emty!");
+                    return;
+                }
+                var lcUser = await lcUserManager.fnLoginAsync(this.Username, this.Password);
+                if (lcUser==null)
+                {
+                    UserAlert.fnInformUser(UserInformType.Warning, "Invalid User!", "Username or password is invalid!");
+                }
+                else
+                {
 
+                }
+            }
+            catch (System.Exception ex)
+            {
+                UserAlert.fnInformUser(UserInformType.Error, "Error", $"{ex.Message}!");
+            }
         }
     }
 }

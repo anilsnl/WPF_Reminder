@@ -1,4 +1,5 @@
 ﻿using ADSReminder.BUS.Abstraction;
+using ADSReminder.Models.DBObjects;
 using ADSReminder.UI.Helpers.IOC;
 using Autofac;
 using System;
@@ -17,24 +18,24 @@ namespace ADSReminder.UI
     public partial class App : Application
     {
         private static ContainerBuilder mBuider;
-        private static IContainer mCenteralIOCModule;
-        public static IContainer CenteralIOCModule
+        private static IContainer mCenteralIOC;
+        public static IContainer CenteralIOC
         {
             get
             {
-                if (mCenteralIOCModule==null)
+                if (mCenteralIOC==null)
                 {
                     mBuider = new ContainerBuilder();
                     mBuider.RegisterModule(new Helpers.IOC.CenteralIOCModule());
-                    mCenteralIOCModule = mBuider.Build();
+                    mCenteralIOC = mBuider.Build();
                 }
-                return mCenteralIOCModule;
+                return mCenteralIOC;
             }
-        } 
+        }
+        public User CuurentUser { get; set; }
         public App()
         {
-            var manager = App.CenteralIOCModule.Resolve<IUserManager>();
-            var list = manager.fnLoginAsync("test", "test").Result;
+            
         }
     }
 }

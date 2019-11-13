@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,6 +77,7 @@
     <Compile Include="BaseClasses\BaseViewModel.cs" />
     <Compile Include="BaseClasses\CommandExcuter.cs" />
     <Compile Include="Helpers\IOC\CenteralIOCModule.cs" />
+    <Compile Include="Helpers\UI\UserAlert.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="UserControlls\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>

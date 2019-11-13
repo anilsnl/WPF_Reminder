@@ -31,6 +31,10 @@ namespace ADSReminder.BUS.Concrete
                 var lcHashedPassword = Hasher.fnHashString(argPassword);
                 var lcUser = await mGenericRepository
                     .fnGetFirstAsync<User>(a => a.Username.Equals(argUsername) && a.PasswordHash.Equals(lcHashedPassword));
+                if (lcUser==null)
+                {
+                    throw new Exception("User could not be found, Username of password is invalid.");
+                }
                 if (!lcUser.IsActive)
                 {
                     throw new Exception("User is not active to login.");
@@ -54,6 +58,10 @@ namespace ADSReminder.BUS.Concrete
         {
             try
             {
+                if (await mGenericRepository.fnExistAsync<User>(a=>a.Username.ToLower().Equals(argUser.Username.ToLower())))
+                {
+                    throw new Exception("User is already exist!");
+                }
                 argUser.CreatedBy = null;
                 argUser.CreatedDate = DateTime.UtcNow;
                 argUser.ModifiedBy = null;
@@ -66,7 +74,6 @@ namespace ADSReminder.BUS.Concrete
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

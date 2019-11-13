@@ -33,6 +33,11 @@ namespace ADSReminder.DataAccess.Concrete.EF
             });
         }
 
+        public async Task<bool> fnExistAsync<T>(Expression<Func<T, bool>> argFiter) where T : BaseEntity, new()
+        {
+            return await Context.Set<T>().AnyAsync(argFiter);
+        }
+
         public async Task<T> fnGetFirstAsync<T>(Expression<Func<T, bool>> argFiter) where T : BaseEntity, new()
         {
             return await Context.Set<T>().FirstOrDefaultAsync(argFiter);
