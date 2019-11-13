@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
              xmlns:local="clr-namespace:ADSReminder.UI"
-             StartupUri="/Views/HomePage.xaml">
+             StartupUri="/Views/LoginPage.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="lblBase">

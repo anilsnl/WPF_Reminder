@@ -74,6 +74,10 @@
       <Project>{71DB0123-9300-46B2-84D6-75EADF8972C4}</Project>
       <Name>ADSReminder.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ADSReminder.Utility\ADSReminder.Utility.csproj">
+      <Project>{b74c2028-4669-44f4-af80-f25661c7a16f}</Project>
+      <Name>ADSReminder.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911101047104_Init.resx">
