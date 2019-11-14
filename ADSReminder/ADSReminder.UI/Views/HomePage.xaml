@@ -37,6 +37,17 @@
                    HorizontalContentAlignment="Center"
                    FontSize="25" 
                    Foreground="White"/>
+                <Label Content="{Binding CurrentUser.NameSurname}"
+                   FontFamily="Tahoma"
+                   FontWeight="ExtraBold"
+                   BorderThickness="2,2,2,2"
+                   FontStyle="Italic"
+                   VerticalContentAlignment="Top"
+                   HorizontalContentAlignment="Right"
+                   HorizontalAlignment="Right"
+                   FontSize="15" 
+                   Foreground="AliceBlue" 
+                   Width="606"/>
             </DockPanel>
         </Border>
         <Border Grid.Column="0"

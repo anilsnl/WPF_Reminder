@@ -79,6 +79,7 @@
     <Compile Include="Helpers\UI\NavigationManger.cs" />
     <Compile Include="Helpers\UI\UserAlert.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="UserControlls\LoginUserControl.xaml.cs">
       <DependentUpon>LoginUserControl.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,7 @@
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\LoginUserControlViewModel.cs" />
     <Compile Include="ViewModels\RegisterUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ResetPasswordUserControlViewModel.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
