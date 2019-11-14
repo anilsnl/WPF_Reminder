@@ -16,6 +16,7 @@ namespace ADSReminder.BUS.Concrete
         {
             this.mGenericRepository = argGenericRepository;
         }
+
         #endregion
         #region Interface Method Section
         /// <summary>
@@ -74,6 +75,48 @@ namespace ADSReminder.BUS.Concrete
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        public async Task<string> fnGetSecretQuestionAsync(string argUsername)
+        {
+            try
+            {
+                var lcUser = await mGenericRepository.fnGetFirstAsync<User>(a => a.Username.Equals(argUsername));
+                if (lcUser == null)
+                    throw new Exception("User could not be found!");
+                return lcUser.SecretQuestion;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        /// <summary>
+        /// Resets the user password.
+        /// </summary>
+        /// <param name="argUsername"></param>
+        /// <param name="argSecretAnswer"></param>
+        /// <param name="argNewPassword"></param>
+        /// <returns></returns>
+        public async Task<User> fnResetPasswordAsync(string argUsername, string argSecretAnswer, string argNewPassword)
+        {
+            try
+            {
+                var lcHashedAnswer = Hasher.fnHashString(argSecretAnswer);
+                var lcHasedPassword = Hasher.fnHashString(argNewPassword);
+                var lcUser = await mGenericRepository.fnGetFirstAsync<User>(a => a.Username.Equals(argUsername) && a.SecretAnswer.Equals(lcHashedAnswer));
+                if (lcUser == null)
+                    throw new Exception("User could not be found!");
+                lcUser.PasswordHash = lcHasedPassword;
+                lcUser.ModifiedDate = DateTime.Now;
+                lcUser.ModifiedBy = lcUser.Id;
+                return await mGenericRepository.fnUpdateAsync<User>(lcUser);
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

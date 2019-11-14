@@ -1,6 +1,7 @@
 ﻿using ADSReminder.BUS.Abstraction;
 using ADSReminder.Models.DBObjects;
 using ADSReminder.UI.Helpers.IOC;
+using ADSReminder.UI.Views;
 using Autofac;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace ADSReminder.UI
 
         public App()
         {
-            App.CurrentUser = App.CenteralIOC.Resolve<IUserManager>().fnLoginAsync("test", "test").Result;
+            
         }
     }
 }

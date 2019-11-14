@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ADSReminder.UI.Helpers.UI
 {
@@ -24,7 +19,7 @@ namespace ADSReminder.UI.Helpers.UI
                     lcIconType = MessageBoxIcon.Error;
                     break;
             }
-            MessageBox.Show(argMessage, argTitle, MessageBoxButtons.OK,lcIconType);
+            System.Windows.Forms.MessageBox.Show(argMessage, argTitle, MessageBoxButtons.OK,lcIconType);
         }
     }
     public enum UserInformType

@@ -1,5 +1,10 @@
-﻿using ADSReminder.UI.BaseClasses;
+﻿using ADSReminder.BUS.Abstraction;
+using ADSReminder.Models.DBObjects;
+using ADSReminder.UI.BaseClasses;
+using ADSReminder.UI.Helpers.UI;
 using ADSReminder.UI.Models;
+using Autofac;
+using System;
 using System.Windows.Input;
 
 namespace ADSReminder.UI.ViewModels
@@ -34,9 +39,33 @@ namespace ADSReminder.UI.ViewModels
             }
         }
 
-        public void OnRegister(object argParam)
+        public async void OnRegister(object argParam)
         {
-
+            try
+            {
+                if (!this.User.Password.Equals(this.User.ConfirmPassword))
+                {
+                    throw new Exception("The password should be same!");
+                }
+                var lcManager = App.CenteralIOC.Resolve<IUserManager>();
+                var lcUser = await lcManager.fnRegisterSystem(new User
+                {
+                    IsActive = true,
+                    CreatedDate = DateTime.Now,
+                    NameSurname = this.User.NameSurname,
+                    SecretQuestion = this.User.SecretQuestion,
+                    Username = this.User.Username
+                }, this.User.Password, this.User.SecretAnswer);
+                if (lcUser!=null)
+                {
+                    App.CurrentUser = lcUser;
+                    NavigationManger.fnNavigateHome();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                UserAlert.fnInformUser(UserInformType.Error, "Error", ex.Message);
+            }
         }
     }
 }

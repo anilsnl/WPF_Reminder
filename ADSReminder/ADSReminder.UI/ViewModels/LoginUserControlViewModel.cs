@@ -69,7 +69,8 @@ namespace ADSReminder.UI.ViewModels
                 }
                 else
                 {
-
+                    App.CurrentUser = lcUser;
+                    NavigationManger.fnNavigateHome();
                 }
             }
             catch (System.Exception ex)

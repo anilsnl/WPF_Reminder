@@ -26,7 +26,6 @@
                          x:Name="psPassword"
                          PasswordChanged="psPassword_PasswordChanged"
                          PasswordChar="*" />
-            <CheckBox Content="Save Login" IsChecked="{Binding Path=SaveLogin,Mode=TwoWay}" />
             <Button Content="Login" HorizontalAlignment="Right" Style="{DynamicResource btnDanger}" Width="100" Command="{Binding LoginCommand}" />
 
         </StackPanel>

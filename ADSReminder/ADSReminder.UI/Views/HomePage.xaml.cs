@@ -39,5 +39,9 @@ namespace ADSReminder.UI.Views
         {
 
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }
