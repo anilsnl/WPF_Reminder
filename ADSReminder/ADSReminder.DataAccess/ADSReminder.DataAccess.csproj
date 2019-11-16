@@ -40,6 +40,9 @@
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.Async.6.1.1.0\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -57,11 +60,8 @@
     <Compile Include="Abstraction\IGenericRepository.cs" />
     <Compile Include="Concrete\EF\ADSReminderDBContext.cs" />
     <Compile Include="Concrete\EF\EFGenericRepository.cs" />
+    <Compile Include="Concrete\Mock\MosckGenericRepositıry.cs" />
     <Compile Include="DataAccessIOCModule.cs" />
-    <Compile Include="Migrations\201911101047104_Init.cs" />
-    <Compile Include="Migrations\201911101047104_Init.designer.cs">
-      <DependentUpon>201911101047104_Init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,11 +78,6 @@
       <Project>{b74c2028-4669-44f4-af80-f25661c7a16f}</Project>
       <Name>ADSReminder.Utility</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911101047104_Init.resx">
-      <DependentUpon>201911101047104_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

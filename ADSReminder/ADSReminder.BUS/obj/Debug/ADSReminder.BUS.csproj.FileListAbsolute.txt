@@ -16,3 +16,7 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\Autofac.pdb
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\Autofac.xml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\EntityFramework.xml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\obj\Debug\ADSReminder.BUS.csproj.CopyComplete
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\EntityFramework.Extended.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\EntityFramework.Extended.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\EntityFramework.Extended.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.BUS\bin\Debug\EntityFramework.Extended.dll.config

@@ -49,6 +49,7 @@ namespace ADSReminder.UI.Models
             {
                 mItems = value;
                 OnPropertyChanged(nameof(Items));
+                OnPropertyChanged(nameof(NumberOfItems));
             }
         }
         public int NumberOfItems

@@ -25,11 +25,14 @@ namespace ADSReminder.BUS.Concrete
             {
                 var lcItemIds = mGenericRepository.fnGetQueryableObjects<ReminderItem>(a => a.ReminderId == argId)
                     .Select(a => a.Id).ToList();
-                foreach (var lcItem in lcItemIds)
+                if (lcItemIds.Any())
                 {
-                    mGenericRepository.fnDeleteAsync(new ReminderItem { Id = lcItem });
+                    foreach (var lcItem in lcItemIds)
+                    {
+                        mGenericRepository.fnDeleteAsync<ReminderItem>(new ReminderItem { Id = lcItem });
+                    }
                 }
-                mGenericRepository.fnDeleteAsync(new Reminder { Id = argId });
+                mGenericRepository.fnDeleteAsync<Reminder>(new Reminder { Id = argId });
                 return await Task.FromResult(true);
             }
             catch (Exception)
@@ -43,8 +46,12 @@ namespace ADSReminder.BUS.Concrete
         {
             try
             {
-                mGenericRepository.fnDeleteAsync(new ReminderItem { Id = argId });
-                return await Task.FromResult(true);
+                await Task.Run(() =>
+                {
+                    mGenericRepository.fnDeleteAsync<ReminderItem>(new ReminderItem { Id = argId });
+                    return true;
+                });
+                return false;
             }
             catch (Exception)
             {
@@ -62,12 +69,14 @@ namespace ADSReminder.BUS.Concrete
                     {
                         Detail = a.Detail,
                         Id = a.Id,
-                        Title = a.Title
-                    }).OrderBy(a=>a.Title).ToList();
+                        Title = a.Title,
+                    }).OrderBy(a => a.Title).ToList();
+                var lcResultList = new List<ReminderGroupModel>();
                 foreach (var lcItem in lcReminderGroups)
                 {
-                    lcItem.Items.Clear();
-                    lcItem.Items = new ObservableCollection<ReminderItemModel>
+                    if (mGenericRepository.fnGetQueryableObjects<ReminderItem>(a => a.ReminderId == lcItem.Id).Any())
+                    {
+                        lcItem.Items = new ObservableCollection<ReminderItemModel>
                         (mGenericRepository.fnGetQueryableObjects<ReminderItem>
                         (a => a.ReminderId == lcItem.Id).Select(a => new ReminderItemModel
                         {
@@ -76,14 +85,21 @@ namespace ADSReminder.BUS.Concrete
                             DueDate = a.ExpreDate,
                             CreateDate = a.CreatedDate,
                             Id = a.Id,
-                            Title = a.Title
+                            Title = a.Title,
+                            ReminderGroupId = a.ReminderId,
+                            ComplatedDate = a.ComplatedDate
                         }));
+                    }
+                    else
+                    {
+                        lcItem.Items = new ObservableCollection<ReminderItemModel>();
+                    }
+                    lcResultList.Add(lcItem);
                 }
-                return await Task.FromResult(lcReminderGroups);
+                return await Task.FromResult(lcResultList);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -100,7 +116,9 @@ namespace ADSReminder.BUS.Concrete
                         Detail = a.Detail,
                         DueDate = a.ExpreDate,
                         IsComplated = a.IsComplated,
-                        Title = a.Title
+                        Title = a.Title,
+                        ReminderGroupId = a.ReminderId,
+                        ComplatedDate = a.ComplatedDate
                     }).OrderBy(a => a.Title).ToList();
                 return await Task.FromResult(lcList);
             }
@@ -142,7 +160,9 @@ namespace ADSReminder.BUS.Concrete
                     DueDate = lcItem.ExpreDate,
                     Id = lcItem.Id,
                     IsComplated = lcItem.IsComplated,
-                    Title = lcItem.Title
+                    Title = lcItem.Title,
+                    ReminderGroupId = lcItem.ReminderId,
+                    ComplatedDate = lcItem.ComplatedDate
                 });
             }
             catch (Exception)
@@ -155,7 +175,15 @@ namespace ADSReminder.BUS.Concrete
         {
             try
             {
-                var lcItem = await mGenericRepository.fnUpdateAsync<ReminderItem>(argModel);
+                var lcItem = await mGenericRepository.fnGetFirstAsync<ReminderItem>(a => a.Id == argModel.Id);
+                lcItem.Title = argModel.Title;
+                lcItem.Detail = argModel.Detail;
+                lcItem.IsComplated = argModel.IsComplated;
+                lcItem.ComplatedDate = argModel.ComplatedDate;
+                lcItem.ExpreDate = argModel.ExpreDate;
+                lcItem.ModifiedBy = argModel.ModifiedBy;
+                lcItem.ModifiedDate = DateTime.Now;
+                lcItem = await mGenericRepository.fnUpdateAsync<ReminderItem>(lcItem);
                 return await Task.FromResult(new ReminderItemModel
                 {
                     CreateDate = lcItem.CreatedDate,
@@ -163,7 +191,9 @@ namespace ADSReminder.BUS.Concrete
                     DueDate = lcItem.ExpreDate,
                     Id = lcItem.Id,
                     IsComplated = lcItem.IsComplated,
-                    Title = lcItem.Title
+                    Title = lcItem.Title,
+                    ReminderGroupId = lcItem.ReminderId,
+                    ComplatedDate = lcItem.ComplatedDate,
                 });
             }
             catch (Exception)

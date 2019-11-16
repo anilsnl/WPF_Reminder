@@ -6,8 +6,10 @@
         xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
         xmlns:local="clr-namespace:ADSReminder.UI.Views"
         mc:Ignorable="d"
+        Icon="/Src/app.ico"
         Title="HomePaage" 
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Height="600" 
         Width="900">
     <Grid Background="White">
@@ -54,31 +56,12 @@
                 Grid.Row="1" 
                 Background="DarkBlue">
             <StackPanel>
-                <Grid Background="Transparent" 
-                      Width="210" 
-                      HorizontalAlignment="Left" 
-                      VerticalAlignment="Top" 
-                      Margin="3,5,3,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="/Src/Icons/search.png" 
-                           Grid.Column="0" 
-                           Width="25"
-                           Margin="0" />
-                    <TextBox Style="{DynamicResource txtForm}" 
-                             Background="DarkBlue" 
-                             BorderBrush="White"
-                             Foreground="White"
-                             Grid.Column="1"
-                             Opacity="0.7"
-                             VerticalAlignment="Stretch"  Width="Auto"/>
-                </Grid>
                 <ListView x:Name="lstGroup"
                           Background="Transparent"
                           ItemsSource="{Binding Reminders}"
-                          Height="365">
+                          SelectionChanged="cmbOrder_SelectionChanged"
+                          SelectedItem="{Binding SelectedGroup}"
+                          Height="420">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Width="90">
@@ -120,10 +103,20 @@
                 <DockPanel Background="White"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Center"
-                           
                            Height="50">
-                    <Image Width="40" Height="40"  Source="/Src/Icons/add.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <Image Width="40" Height="40" Source="/Src/Icons/delete.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Image Width="40" Height="40"
+                           x:Name="imgAddGroup"
+                           MouseLeftButtonUp="imgAddGroup_MouseLeftButtonUp"
+                           Source="/Src/Icons/add.png" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"/>
+                    <Image Width="40" 
+                           Height="40" 
+                           Source="/Src/Icons/delete.png" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"
+                           x:Name="btnGroupDelete"
+                           MouseLeftButtonDown="btnGroupDelete_MouseLeftButtonDown"/>
                 </DockPanel>
             </StackPanel>
         </Border>
@@ -134,8 +127,8 @@
             <Grid x:Name="grdMain" Margin="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="120"/>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Column="0" 
                            Grid.Row="0"
@@ -145,10 +138,14 @@
                            FontSize="18"
                            Style="{DynamicResource lblFiter}"/>
                     <ComboBox Style="{DynamicResource cmbFilter}"
+                              Name="cmbOrder"
                               Width="110"
-                              Height="30"  >
-                        <ComboBoxItem Content="Name" />
+                              Height="30"
+                              SelectedIndex="{Binding Path=OrderIndex,Mode=TwoWay}"
+                              SelectionChanged="cmbOrder_SelectionChanged">
+                        <ComboBoxItem Content="Name"  />
                         <ComboBoxItem Content="Status" />
+                        <ComboBoxItem Content="Due Date" />
                         <ComboBoxItem Content="Create Date" />
                     </ComboBox>
                     <Label Content="Filter By: "
@@ -156,7 +153,10 @@
                            Style="{DynamicResource lblFiter}"/>
                     <ComboBox Style="{DynamicResource cmbFilter}"
                               Width="150"
-                              Height="30">
+                              Height="30" 
+                              x:Name="cmbFilter"
+                              SelectionChanged="cmbOrder_SelectionChanged"
+                              SelectedIndex="{Binding Path=FilterIndex,Mode=TwoWay}">
                         <ComboBoxItem Content="-All-" />
                         <ComboBoxItem Content="Complated" />
                         <ComboBoxItem Content="Not Complated" />
@@ -168,26 +168,73 @@
                     <TextBox x:Name="txtReminderSearch"
                              Style="{DynamicResource txtFilter}"
                              Height="30"
+                             Text="{Binding Path=SearchedText,Mode=TwoWay}"
+                             TextChanged="txtReminderSearch_TextChanged"
                              Width="130"/>
                 </DockPanel>
-                <ListView ItemsSource="{Binding SelectedGroup.Items}" 
+                <DockPanel Grid.Column="0"
+                           Grid.Row="1"
+                           IsEnabled="{Binding IsGroupSelected}"
+                           Margin="0">
+                    <Button HorizontalAlignment="Left"
+                            Content="Add New Reminder"
+                            Height="30" 
+                            Margin="1,0,1,0"
+                            FontSize="10"
+                            Width="110"
+                            x:Name="btnReminderItemAdd"
+                            Command="{Binding NewItemCommand}"
+                            Style="{DynamicResource btnDanger}"/>
+                    <Button HorizontalAlignment="Left"
+                            Content="Mark As Complated"
+                            Height="30"
+                            IsEnabled="{Binding ItemIsNotComplated}"
+                            Margin="1,0,1,0"
+                            FontSize="10"
+                            Width="110"
+                            x:Name="btnMarkAsComplated"
+                            Command="{Binding MarkAsComplatedCommand}"
+                            Style="{DynamicResource btnDanger}"/>
+                    <Button HorizontalAlignment="Left"
+                            Content="Delete"
+                            IsEnabled="{Binding IsItemSelected}"
+                            Margin="1,0,1,0"
+                            Height="30"
+                            FontSize="10"
+                            Width="100"
+                            x:Name="btnDeleteItem"
+                            Command="{Binding DeleteItemCommand}"
+                            Style="{DynamicResource btnDanger}"/>
+                    <Button HorizontalAlignment="Left"
+                            Content="Update"
+                            IsEnabled="{Binding IsItemSelected}"
+                            Margin="1,0,1,0"
+                            Height="30"
+                            FontSize="10"
+                            Width="100"
+                            x:Name="btnUpdate"
+                            Command="{Binding UpdateItemCommand}"
+                            Style="{DynamicResource btnDanger}"/>
+                </DockPanel>
+                <ListView ItemsSource="{Binding FilteredItem}" 
                           SelectedItem="{Binding SelectedItem}"
                           Grid.Column="0"
+                          Visibility="{Binding IsGroupSelectedForList}"
                           Width="675"
-                          Grid.Row="1" >
+                          Grid.Row="2" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid  Width="675">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
                                     <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="8*"/>
-                                    <ColumnDefinition Width="62*"/>
-                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="90*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding IconSrc}"
+                                <Image Source="{Binding Path=IconSrc,Mode=OneWay}"
                                        Grid.Column="0"
                                        Grid.Row="0"
                                        Grid.RowSpan="2"/>
@@ -196,142 +243,32 @@
                                        FontSize="14"  
                                        VerticalContentAlignment="Center"
                                        FontFamily="Tahoma" 
-                                       FontWeight="Bold" Margin="0" Padding="0"
-                                       Content="{Binding Title}"/>
-                                <Label Content="{Binding StringFormat='Due: {0}',Path=DueDate}"
-                                       Grid.Row="0" FontSize="10"  
+                                       FontWeight="Bold" 
+                                       Margin="0" 
+                                       Padding="0"
+                                       Content="{Binding Path=Title,Mode=TwoWay}"/>
+                                <Label Content="{Binding Path=DateState,Mode=OneWay}"
+                                       Grid.Row="1" 
+                                       Grid.Column="1"
+                                       FontSize="10"  
                                        FontFamily="Tahoma" 
                                        FontWeight="Bold"
                                        Margin="0" 
                                        VerticalContentAlignment="Center"
-                                       HorizontalContentAlignment="Right"
-                                       HorizontalAlignment="Right"
-                                       Padding="0"
-                                       Grid.Column="2"/>
-                                <Label Content="{Binding Detail}"
-                                       Grid.Row="1" 
+                                       HorizontalContentAlignment="Left"
+                                       HorizontalAlignment="Left"
+                                       Padding="0"/>
+                                <Label Content="{Binding Path=Detail,Mode=TwoWay}"
+                                       Grid.Row="2" 
+                                       Grid.ColumnSpan="2"
+                                       Grid.Column="0"
                                        VerticalContentAlignment="Top"
                                        FontSize="10"  
-                                       FontFamily="Tahoma"
-                                       Grid.Column="1"/>
-                                <Label Content="{Binding StringFormat='Create: {0}',Path=DueDate}"
-                                       Grid.Row="0" FontSize="10"  
-                                       FontFamily="Tahoma" 
-                                       FontWeight="Bold"
-                                       Margin="0" 
-                                       VerticalContentAlignment="Center"
-                                       HorizontalContentAlignment="Right"
-                                       HorizontalAlignment="Right"
-                                       Padding="2"
-                                       Grid.Column="2"/>
+                                       FontFamily="Tahoma"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Grid Grid.Row="2"
-                      Grid.Column="0"
-                      Visibility="{Binding IsSelectedReminderItem}"
-                      Width="666">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="35*"/>
-                        <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="35*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0"
-                           Grid.Column="0"
-                           Content="Title"
-                           VerticalAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           Style="{DynamicResource lblT1}"
-                           Margin="0"
-                           Width="100"
-                           Height="40"/>
-                    <TextBox Grid.Row="0"
-                             Grid.Column="1"
-                             Text="{Binding SelectedItem.Title}"
-                             Style="{DynamicResource txtForm}"
-                             Margin="0"
-                             Width="235"
-                             Height="40"/>
-                    <Label Grid.Row="0"
-                           Grid.Column="2"
-                           VerticalAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           Content="Due Date"
-                           Margin="0"
-                           Style="{DynamicResource lblT1}"
-                           Width="100"
-                           Height="40"/>
-                    <wpfx:DateTimePicker Grid.Row="0"
-                             Grid.Column="3"
-                             Value="{Binding Path=SelectedItem.DueDate,Mode=OneWay}"
-                             VerticalAlignment="Center"
-                             VerticalContentAlignment="Center"
-                             HorizontalContentAlignment="Left"
-                             HorizontalAlignment="Left"
-                             Margin="0,2"
-                             Style="{DynamicResource dtpForm}"
-                             Width="223"
-                             Height="36"/>
-                    <Label Grid.Row="1"
-                           Grid.Column="0"
-                           VerticalAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           Content="Detail"
-                           Margin="0"
-                           Style="{DynamicResource lblT1}"
-                           Width="100"
-                           Height="40"/>
-                    <Button Grid.Column="0"
-                            Grid.Row="2"
-                            Content="Delete"
-                            Height="30"
-                            FontSize="10"
-                            Width="90"
-                            Style="{DynamicResource btnDanger}"/>
-                    <wpfx:RichTextBox Grid.Row="1"
-                             Grid.Column="1"
-                             Grid.RowSpan="2"
-                             Grid.ColumnSpan="2"
-                             Text="{Binding SelectedItem.Detail}"
-                             Style="{DynamicResource frmRTxt}"
-                             Margin="0"
-                             Width="330"
-                             Height="80"/>
-                    <CheckBox Grid.Row="1"
-                              Grid.Column="3"
-                              IsChecked="{Binding SelectedItem.IsComplated}"
-                              Style="{DynamicResource chcFrm}"
-                              Margin="0,5,10,5"
-                              Content="Mark As Complated" Width="Auto"/>
-                    <DockPanel Grid.Column="3"
-                               Grid.Row="2"
-                               Width="235"
-                               Margin="0" >
-                        <Button HorizontalAlignment="Right"
-                            Content="Rollback"
-                            Height="30"
-                            FontSize="10"
-                            Width="100"
-                            x:Name="btnRollback"
-                            Click="btnRollback_Click"
-                            Style="{DynamicResource btnDanger}"/>
-                        <Button HorizontalAlignment="Right"
-                            Content="Save Changes"
-                            Height="30"
-                            FontSize="10"
-                            Width="118"
-                            x:Name="btnSaveChanges"
-                            Click="btnSaveChanges_Click"
-                            Style="{DynamicResource btnSuccess}" Margin="0,5"/>
-                    </DockPanel>
-                </Grid>
             </Grid>
         </Border>
     </Grid>

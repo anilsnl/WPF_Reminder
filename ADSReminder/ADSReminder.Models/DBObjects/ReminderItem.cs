@@ -30,7 +30,6 @@ namespace ADSReminder.Models.DBObjects
         public bool IsComplated { get; set; }
         #endregion
         #region DateTime Objects
-        [Required(ErrorMessage = "ExpreDate is required.")]
         [Column("ExpreDate")]
         public DateTime ExpreDate { get; set; }
         [Column("ComplatedDate")]

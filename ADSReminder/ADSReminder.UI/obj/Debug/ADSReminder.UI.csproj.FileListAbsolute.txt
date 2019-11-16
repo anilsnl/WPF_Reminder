@@ -38,3 +38,9 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePa
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\HomePage.baml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.SqlServer.dll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.SqlServer.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\AddOrUpdateReminderItemPage.g.cs
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\obj\Debug\Views\AddOrUpdateReminderItemPage.baml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.Extended.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.Extended.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.Extended.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.UI\bin\Debug\EntityFramework.Extended.dll.config

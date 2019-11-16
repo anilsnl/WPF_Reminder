@@ -6,11 +6,13 @@ namespace ADSReminder.UI.Models
     public class ReminderItemModel : BaseModel
     {
         private int mId;
+        private int mReminderGroupId;
         private string mTitle;
         private string mDetail;
         private bool mIsComplated;
         private DateTime mDueDate;
         private DateTime mCreateDate;
+        private DateTime? mComplatedDate;
         public int Id
         {
             get => mId;
@@ -18,6 +20,15 @@ namespace ADSReminder.UI.Models
             {
                 mId = value;
                 OnPropertyChanged(nameof(Id));
+            }
+        }
+        public int ReminderGroupId
+        {
+            get => mReminderGroupId;
+            set
+            {
+                mReminderGroupId = value;
+                OnPropertyChanged(nameof(ReminderGroupId));
             }
         }
         public string Title
@@ -57,6 +68,8 @@ namespace ADSReminder.UI.Models
             {
                 mIsComplated = value;
                 OnPropertyChanged(nameof(IsComplated));
+                OnPropertyChanged(nameof(DateState));
+                OnPropertyChanged(nameof(IconSrc));
             }
         }
         public DateTime DueDate 
@@ -66,6 +79,8 @@ namespace ADSReminder.UI.Models
             {
                 mDueDate = value;
                 OnPropertyChanged(nameof(DueDate));
+                OnPropertyChanged(nameof(IconSrc));
+                OnPropertyChanged(nameof(DateState));
             }
         }
         public DateTime CreateDate 
@@ -75,6 +90,28 @@ namespace ADSReminder.UI.Models
             {
                 mCreateDate = value;
                 OnPropertyChanged(nameof(CreateDate));
+            }
+        }
+        public DateTime? ComplatedDate
+        {
+            get => mComplatedDate;
+            set
+            {
+                mComplatedDate = value;
+                OnPropertyChanged(nameof(ComplatedDate));
+                OnPropertyChanged(nameof(DateState));
+            }
+        }
+        public string DateState
+        {
+            get
+            {
+                var lcString = $"Due: {DueDate.ToString("dd MMMM, HH:mm")},Done: ";
+                if (ComplatedDate != null)
+                    lcString =lcString+ ComplatedDate.Value.ToString("dd,MMMM, HH:mm");
+                else
+                    lcString += "-";
+                return lcString;
             }
         }
     }

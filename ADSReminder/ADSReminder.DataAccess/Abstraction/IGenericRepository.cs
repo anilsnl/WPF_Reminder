@@ -48,7 +48,7 @@ namespace ADSReminder.DataAccess.Abstraction
         /// Deletes the passing objects from the databse.
         /// </summary>
         /// <param name="argObject"></param>
-        void fnDeleteAsync(BaseEntity argObject);
+        Task fnDeleteAsync<T>(T argObject) where T : BaseEntity, new();
         /// <summary>
         /// Takes the filter and returns there exist any record matching that filter.
         /// </summary>

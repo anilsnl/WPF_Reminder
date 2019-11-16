@@ -7,7 +7,7 @@ namespace ADSReminder.DataAccess.Concrete.EF
 {
     public class ADSReminderDBContext : DbContext
     {
-        public ADSReminderDBContext():base("ADSDefault")
+        public ADSReminderDBContext():base("ADSLocal")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ADSReminderDBContext, Configuration>());
         }

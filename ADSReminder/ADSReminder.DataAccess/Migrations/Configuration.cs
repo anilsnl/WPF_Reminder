@@ -15,7 +15,6 @@
 
         protected override void Seed(ADSReminder.DataAccess.Concrete.EF.ADSReminderDBContext argContext)
         {
-
             if (!argContext.Users.Any())
             {
                 var lcTestUser = new User
@@ -35,6 +34,7 @@
                 var lcReminder = new Reminder
                 {
                     CreatedDate = System.DateTime.Now,
+                    CreatedBy=lcTestUser.Id,
                     OwnerId = lcTestUser.Id,
                     Title = "Test Group 1",
                     IsActive = true,
@@ -43,9 +43,9 @@
                 argContext.Reminders.Add(lcReminder);
                 argContext.SaveChanges();
                 lcReminder = argContext.Reminders.FirstOrDefault();
-                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(20), Title = "Item 1", Detail = "Detail 1", IsComplated = false,ReminderId=lcReminder.Id });
-                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 2", Detail = "Detail 2", IsComplated = false,ReminderId=lcReminder.Id });
-                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 3", Detail = "Detail 3", IsComplated = true,ReminderId=lcReminder.Id });
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(20), Title = "Item 1", Detail = "Detail 1", IsComplated = false,ReminderId=lcReminder.Id , CreatedDate=DateTime.Now,CreatedBy=lcTestUser.Id,IsActive=true});
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 2", Detail = "Detail 2", IsComplated = false,ReminderId=lcReminder.Id, CreatedDate=DateTime.Now, CreatedBy = lcTestUser.Id, IsActive = true });
+                argContext.ReminderItems.Add(new ReminderItem { ExpreDate = System.DateTime.Now.AddHours(-20), Title = "Item 3", Detail = "Detail 3", IsComplated = true,ReminderId=lcReminder.Id ,CreatedDate=DateTime.Now, CreatedBy = lcTestUser.Id, IsActive = true });
                 argContext.SaveChanges();
             }
         }

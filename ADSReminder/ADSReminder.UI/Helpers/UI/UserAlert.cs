@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using ADSReminder.UI.CustomControls;
+using Microsoft.VisualBasic;
 using System.Windows.Forms;
 
 namespace ADSReminder.UI.Helpers.UI

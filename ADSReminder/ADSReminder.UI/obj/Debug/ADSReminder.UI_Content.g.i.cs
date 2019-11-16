@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/iconfinder_free-14_463013.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/user.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/icons/worm.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("src/app.ico")]
 
 

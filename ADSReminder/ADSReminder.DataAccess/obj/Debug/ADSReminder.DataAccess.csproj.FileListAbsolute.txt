@@ -11,10 +11,12 @@ C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSR
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSReminder.DataAccess.csproj.CopyComplete
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSReminder.DataAccess.dll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSReminder.DataAccess.pdb
-C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSReminder.DataAccess.Migrations.Init.resources
-C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\obj\Debug\ADSReminder.DataAccess.csproj.GenerateResource.cache
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\Autofac.dll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\Autofac.pdb
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\Autofac.xml
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\ADSReminder.Utility.dll
 C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\ADSReminder.Utility.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\EntityFramework.Extended.dll
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\EntityFramework.Extended.pdb
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\EntityFramework.Extended.xml
+C:\gitrepo\GitHub\WPF_Reminder\ADSReminder\ADSReminder.DataAccess\bin\Debug\EntityFramework.Extended.dll.config
